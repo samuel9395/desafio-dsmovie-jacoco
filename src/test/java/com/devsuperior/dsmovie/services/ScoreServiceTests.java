@@ -7,11 +7,8 @@ import com.devsuperior.dsmovie.entities.ScoreEntity;
 import com.devsuperior.dsmovie.entities.UserEntity;
 import com.devsuperior.dsmovie.repositories.MovieRepository;
 import com.devsuperior.dsmovie.repositories.ScoreRepository;
-import com.devsuperior.dsmovie.repositories.UserRepository;
 import com.devsuperior.dsmovie.services.exceptions.ResourceNotFoundException;
-import com.devsuperior.dsmovie.tests.MovieFactory;
 import com.devsuperior.dsmovie.tests.ScoreFactory;
-import com.devsuperior.dsmovie.tests.UserFactory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,8 +19,6 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
-
-import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class ScoreServiceTests {
