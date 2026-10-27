@@ -6,9 +6,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.devsuperior.dsmovie.dto.MovieDTO;
 import com.devsuperior.dsmovie.dto.ScoreDTO;
-import com.devsuperior.dsmovie.entities.MovieEntity;
-import com.devsuperior.dsmovie.entities.ScoreEntity;
-import com.devsuperior.dsmovie.entities.UserEntity;
+import com.devsuperior.dsmovie.entities.Movie;
+import com.devsuperior.dsmovie.entities.Score;
+import com.devsuperior.dsmovie.entities.User;
 import com.devsuperior.dsmovie.repositories.MovieRepository;
 import com.devsuperior.dsmovie.repositories.ScoreRepository;
 import com.devsuperior.dsmovie.services.exceptions.ResourceNotFoundException;
@@ -28,12 +28,12 @@ public class ScoreService {
 	@Transactional
 	public MovieDTO saveScore(ScoreDTO dto) {
 		
-		UserEntity user = userService.authenticated();
+		User user = userService.authenticated();
 		
-		MovieEntity movie = movieRepository.findById(dto.getMovieId())
+		Movie movie = movieRepository.findById(dto.getMovieId())
 				.orElseThrow(() -> new ResourceNotFoundException("Recurso não encontrado"));		
 		
-		ScoreEntity score = new ScoreEntity();
+		Score score = new Score();
 		score.setMovie(movie);
 		score.setUser(user);
 		score.setValue(dto.getScore());
@@ -41,7 +41,7 @@ public class ScoreService {
 		score = scoreRepository.saveAndFlush(score);
 		
 		double sum = 0.0;
-		for (ScoreEntity s : movie.getScores()) {
+		for (Score s : movie.getScores()) {
 			sum = sum + s.getValue();
 		}
 			

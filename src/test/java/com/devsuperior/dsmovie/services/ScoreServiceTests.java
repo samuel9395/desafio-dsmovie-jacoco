@@ -2,9 +2,9 @@ package com.devsuperior.dsmovie.services;
 
 import com.devsuperior.dsmovie.dto.MovieDTO;
 import com.devsuperior.dsmovie.dto.ScoreDTO;
-import com.devsuperior.dsmovie.entities.MovieEntity;
-import com.devsuperior.dsmovie.entities.ScoreEntity;
-import com.devsuperior.dsmovie.entities.UserEntity;
+import com.devsuperior.dsmovie.entities.Movie;
+import com.devsuperior.dsmovie.entities.Score;
+import com.devsuperior.dsmovie.entities.User;
 import com.devsuperior.dsmovie.repositories.MovieRepository;
 import com.devsuperior.dsmovie.repositories.ScoreRepository;
 import com.devsuperior.dsmovie.services.exceptions.ResourceNotFoundException;
@@ -35,10 +35,10 @@ public class ScoreServiceTests {
     @Mock
     private UserService userService;
 
-    private MovieEntity movie;
-    private UserEntity user;
+    private Movie movie;
+    private User user;
     private ScoreDTO scoreDTO;
-    private ScoreEntity score;
+    private Score score;
 
     @BeforeEach
     public void setUp() {

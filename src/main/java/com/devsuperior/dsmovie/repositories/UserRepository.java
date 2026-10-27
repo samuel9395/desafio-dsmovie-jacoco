@@ -6,12 +6,12 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.devsuperior.dsmovie.entities.UserEntity;
+import com.devsuperior.dsmovie.entities.User;
 import com.devsuperior.dsmovie.projections.UserDetailsProjection;
 
-public interface UserRepository extends JpaRepository<UserEntity, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
-	Optional<UserEntity> findByUsername(String username);
+	Optional<User> findByUsername(String username);
 	
 	@Query(nativeQuery = true, value = """
 			SELECT tb_user.username AS username, tb_user.password, tb_role.id AS roleId, tb_role.authority

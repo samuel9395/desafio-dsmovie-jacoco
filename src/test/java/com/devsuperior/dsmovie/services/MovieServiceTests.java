@@ -1,7 +1,7 @@
 package com.devsuperior.dsmovie.services;
 
 import com.devsuperior.dsmovie.dto.MovieDTO;
-import com.devsuperior.dsmovie.entities.MovieEntity;
+import com.devsuperior.dsmovie.entities.Movie;
 import com.devsuperior.dsmovie.repositories.MovieRepository;
 import com.devsuperior.dsmovie.services.exceptions.DatabaseException;
 import com.devsuperior.dsmovie.services.exceptions.ResourceNotFoundException;
@@ -36,9 +36,9 @@ public class MovieServiceTests {
     private MovieRepository repository;
 
     private Long existingMovieId, nonExistingMovieId, dependentMovieId;
-    private MovieEntity movie;
+    private Movie movie;
     private MovieDTO movieDTO;
-    private PageImpl<MovieEntity> page;
+    private PageImpl<Movie> page;
 
     @BeforeEach
     void setUp() throws Exception {

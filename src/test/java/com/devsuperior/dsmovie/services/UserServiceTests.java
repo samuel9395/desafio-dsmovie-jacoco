@@ -1,6 +1,6 @@
 package com.devsuperior.dsmovie.services;
 
-import com.devsuperior.dsmovie.entities.UserEntity;
+import com.devsuperior.dsmovie.entities.User;
 import com.devsuperior.dsmovie.projections.UserDetailsProjection;
 import com.devsuperior.dsmovie.repositories.UserRepository;
 import com.devsuperior.dsmovie.tests.UserDetailsFactory;
@@ -36,7 +36,7 @@ public class UserServiceTests {
     private CustomUserUtil userUtil;
 
     private String existingUserName, nonExistingUserName;
-    private UserEntity user;
+    private User user;
     private List<UserDetailsProjection> userDetails;
 
     @BeforeEach
@@ -54,7 +54,7 @@ public class UserServiceTests {
         Mockito.when(repository.findByUsername(existingUserName)).thenReturn(Optional.of(user));
         Mockito.when(userUtil.getLoggedUsername()).thenReturn(existingUserName);
 
-        UserEntity result = service.authenticated();
+        User result = service.authenticated();
 
         Assertions.assertNotNull(result);
         Assertions.assertEquals(existingUserName, result.getUsername());

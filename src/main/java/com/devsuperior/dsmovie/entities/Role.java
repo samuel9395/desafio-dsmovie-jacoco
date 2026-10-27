@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "tb_role")
-public class RoleEntity implements GrantedAuthority {
+public class Role implements GrantedAuthority {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,10 +23,10 @@ public class RoleEntity implements GrantedAuthority {
 	@Column(unique = true)
 	private String authority;
 
-	public RoleEntity() {
+	public Role() {
 	}
 
-	public RoleEntity(Long id, String authority) {
+	public Role(Long id, String authority) {
 		this.id = id;
 		this.authority = authority;
 	}
@@ -61,7 +61,7 @@ public class RoleEntity implements GrantedAuthority {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		RoleEntity other = (RoleEntity) obj;
+		Role other = (Role) obj;
 		return Objects.equals(authority, other.authority);
 	}
 }

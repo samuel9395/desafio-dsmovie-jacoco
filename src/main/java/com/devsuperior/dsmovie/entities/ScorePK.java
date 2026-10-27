@@ -7,32 +7,32 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Embeddable
-public class ScoreEntityPK {
+public class ScorePK {
 
 	@ManyToOne
 	@JoinColumn(name = "movie_id")
-	private MovieEntity movie;
+	private Movie movie;
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	private UserEntity user;
+	private User user;
 	
-	public ScoreEntityPK() {
+	public ScorePK() {
 	}
 
-	public MovieEntity getMovie() {
+	public Movie getMovie() {
 		return movie;
 	}
 
-	public void setMovie(MovieEntity movie) {
+	public void setMovie(Movie movie) {
 		this.movie = movie;
 	}
 
-	public UserEntity getUser() {
+	public User getUser() {
 		return user;
 	}
 
-	public void setUser(UserEntity user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 
@@ -49,7 +49,7 @@ public class ScoreEntityPK {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ScoreEntityPK other = (ScoreEntityPK) obj;
+		ScorePK other = (ScorePK) obj;
 		return Objects.equals(movie, other.movie) && Objects.equals(user, other.user);
 	}
 }

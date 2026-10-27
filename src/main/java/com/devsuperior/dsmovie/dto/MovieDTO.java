@@ -1,6 +1,6 @@
 package com.devsuperior.dsmovie.dto;
 
-import com.devsuperior.dsmovie.entities.MovieEntity;
+import com.devsuperior.dsmovie.entities.Movie;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.PositiveOrZero;
@@ -45,7 +45,7 @@ public class MovieDTO {
 		this.image = image;
 	}
 
-	public MovieDTO(MovieEntity movie) {
+	public MovieDTO(Movie movie) {
 		this(movie.getId(), movie.getTitle(), movie.getScore(), movie.getCount(), movie.getImage());
 	}
 

@@ -20,7 +20,7 @@ import jakarta.persistence.Table;
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "tb_user")
-public class UserEntity implements UserDetails {
+public class User implements UserDetails {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,12 +33,12 @@ public class UserEntity implements UserDetails {
 
 	@ManyToMany
 	@JoinTable(name = "tb_user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-	private Set<RoleEntity> roles = new HashSet<>();
+	private Set<Role> roles = new HashSet<>();
 
-	public UserEntity() {
+	public User() {
 	}
 
-	public UserEntity(Long id, String name, String username, String password) {
+	public User(Long id, String name, String username, String password) {
 		this.id = id;
 		this.name = name;
 		this.username = username;
@@ -79,11 +79,11 @@ public class UserEntity implements UserDetails {
 		this.password = password;
 	}
 
-	public Set<RoleEntity> getRoles() {
+	public Set<Role> getRoles() {
 		return roles;
 	}
 
-    public void addRole(RoleEntity role) {
+    public void addRole(Role role) {
     	roles.add(role);
     }
     

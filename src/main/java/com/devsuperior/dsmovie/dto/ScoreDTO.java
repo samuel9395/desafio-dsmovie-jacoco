@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
-import com.devsuperior.dsmovie.entities.ScoreEntity;
+import com.devsuperior.dsmovie.entities.Score;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotNull;
@@ -30,7 +30,7 @@ public class ScoreDTO {
 		this.score = Double.valueOf(df.format(score));
 	}
 	
-	public ScoreDTO(ScoreEntity score) {
+	public ScoreDTO(Score score) {
 		this.movieId = score.getId().getMovie().getId();
 		this.score = Double.valueOf(df.format(score.getValue()));
 	}
