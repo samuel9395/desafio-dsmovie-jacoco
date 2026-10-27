@@ -1,17 +1,15 @@
 package com.devsuperior.dsmovie.dto;
 
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
-import java.util.Locale;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import org.hibernate.validator.constraints.URL;
-
 import com.devsuperior.dsmovie.entities.MovieEntity;
-
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
+import org.hibernate.validator.constraints.URL;
+
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
 
 public class MovieDTO {
 
