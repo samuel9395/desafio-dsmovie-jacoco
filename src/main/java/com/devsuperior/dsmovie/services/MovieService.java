@@ -67,9 +67,9 @@ public class MovieService {
 
 	@Transactional(readOnly = true)
 	public MovieGenreDTO findByIdMovieGenre(Long id) {
-		Movie result = repository.findById(id).get();
-		MovieGenreDTO dto = new MovieGenreDTO(result);
-		return dto;
+		Movie result = repository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Recurso não encontrado"));
+		return new MovieGenreDTO(result);
 	}
 
 	@Transactional(readOnly = true)
