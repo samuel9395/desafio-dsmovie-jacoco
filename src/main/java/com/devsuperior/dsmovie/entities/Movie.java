@@ -4,12 +4,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tb_movie")
@@ -22,6 +17,10 @@ public class Movie {
 	private Double score;
 	private Integer count;
 	private String image;
+
+	@ManyToOne
+	@JoinColumn(name = "genre_id")
+	public Genre genre; // Get e set
 	
 	@OneToMany(mappedBy = "id.movie")
 	private Set<Score> scores = new HashSet<>();
@@ -79,6 +78,10 @@ public class Movie {
 
 	public Set<Score> getScores() {
 		return scores;
+	}
+
+	public Genre getGenre() {
+		return genre;
 	}
 
 	@Override

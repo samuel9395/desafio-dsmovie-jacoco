@@ -1,5 +1,6 @@
 package com.devsuperior.dsmovie.services;
 
+import com.devsuperior.dsmovie.dto.MovieGenreDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
@@ -62,6 +63,20 @@ public class MovieService {
 		} catch (DataIntegrityViolationException e) {
 			throw new DatabaseException("Falha de integridade referencial");
 		}
+	}
+
+	@Transactional(readOnly = true)
+	public MovieGenreDTO findByIdMovieGenre(Long id) {
+		Movie result = repository.findById(id).get();
+		MovieGenreDTO dto = new MovieGenreDTO(result);
+		return dto;
+	}
+
+	@Transactional(readOnly = true)
+	public Page<MovieGenreDTO> findAllMovieGenre(Pageable pageable) {
+		Page<Movie> result = repository.findAll(pageable);
+		Page<MovieGenreDTO> page = result.map(x -> new MovieGenreDTO(x));
+		return page;
 	}
 
 	private void copyDtoToEntity(MovieDTO dto, Movie entity) {
